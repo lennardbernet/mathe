@@ -1,6 +1,5 @@
 package vektoren;
 
-import java.awt.Point;
 
 public class Dreieck {
 	
