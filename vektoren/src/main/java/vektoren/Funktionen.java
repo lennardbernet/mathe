@@ -56,15 +56,12 @@ public class Funktionen {
 
 		dreieck = new Dreieck();
 
-		System.out.println(
-				"Funktion 2:\nFunktion 1 Eingabe: Punkt A, Punkt B\nFunktion 1 Ausgabe: Vektor AB, Neigungswinkel, Länge");
 		// Ecke A
 		System.out.println("Gib den Punkt A ein. Syntax: 1/2");
 		String inputString = scanner.nextLine();
 		punkt1 = Integer.parseInt(inputString.substring(0, 1));
 		punkt2 = Integer.parseInt(inputString.substring(2, 3));
 		dreieck.setEckeA(new Point(punkt1, punkt2));
-		System.out.println("Gib den Punkt B ein. Syntax 1/2");
 
 		// Ecke B
 		System.out.println("Gib den Punkt B ein. Syntax 1/2");
@@ -91,6 +88,40 @@ public class Funktionen {
 		double tanAlpha = dreieck.getSeiteA() / dreieck.getSeiteB();
 		alpha = 180 / Math.PI * Math.atan(tanAlpha);
 		dreieck.setAlpha(alpha);
+		return dreieck;
+	}
+
+	public Dreieck funktion3() {
+
+		dreieck = new Dreieck();
+
+		// Ecke A
+		System.out.println("Gib den Punkt A ein. Syntax: 1/2");
+		String inputString = scanner.nextLine();
+		punkt1 = Integer.parseInt(inputString.substring(0, 1));
+		punkt2 = Integer.parseInt(inputString.substring(2, 3));
+		dreieck.setEckeA(new Point(punkt1, punkt2));
+
+		// Alpha
+		System.out.println("Gib den Neigungswinkel ein");
+		inputString = scanner.nextLine();
+		dreieck.setAlpha(Integer.parseInt(inputString));
+
+		// Seite B
+		System.out.println("Gib die Länge B ein");
+		inputString = scanner.nextLine();
+		dreieck.setSeiteB(Integer.parseInt(inputString));
+
+		// Seite C ausrechnen
+		dreieck.setSeiteC(dreieck.getSeiteB() / Math.cos(dreieck.getAlpha()));
+
+		// Seite A ausrechnen
+		dreieck.setSeiteA(dreieck.getSeiteC() * Math.sin(dreieck.getAlpha()));
+
+		// Punkt B
+		dreieck.setEckeB(new Point(dreieck.getEckeA().getX() + dreieck.getSeiteB(),
+				dreieck.getEckeA().getY() + dreieck.getSeiteA()));
+
 		return dreieck;
 	}
 

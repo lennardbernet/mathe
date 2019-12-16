@@ -1,8 +1,7 @@
 package vektoren;
 
-
 public class Dreieck {
-	
+
 	private Point eckeA;
 	private Point eckeB;
 	private Point eckeC;
@@ -12,9 +11,9 @@ public class Dreieck {
 	private double alpha;
 	private double beta;
 	private double gamma;
-	
+
 	public Dreieck() {
-		
+
 	}
 
 	public Point getEckeA() {
@@ -30,9 +29,7 @@ public class Dreieck {
 	}
 
 	public void setEckeB(Point eckeB) {
-		System.out.println(eckeB.getY());
 		this.eckeB = eckeB;
-		System.out.println(this.eckeB.getY());
 	}
 
 	public Point getEckeC() {
@@ -48,7 +45,7 @@ public class Dreieck {
 	}
 
 	public void setSeiteA(double seiteA) {
-		this.seiteA = seiteA;
+		this.seiteA = Math.round(seiteA * 100.0) / 100.0;
 	}
 
 	public double getSeiteB() {
@@ -56,7 +53,7 @@ public class Dreieck {
 	}
 
 	public void setSeiteB(double seiteB) {
-		this.seiteB = seiteB;
+		this.seiteB = Math.round(seiteB * 100.0) / 100.0;
 	}
 
 	public double getSeiteC() {
@@ -64,7 +61,7 @@ public class Dreieck {
 	}
 
 	public void setSeiteC(double seiteC) {
-		this.seiteC = seiteC;
+		this.seiteC = Math.round(seiteC * 100.0) / 100.0;
 	}
 
 	public double getAlpha() {
@@ -90,7 +87,5 @@ public class Dreieck {
 	public void setGamma(double gamma) {
 		this.gamma = gamma;
 	}
-	
-	
-	
+
 }
